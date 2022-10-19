@@ -9,8 +9,9 @@ class MyArray
     {
         for (int i = lowerBound[c]; i < upperBound[c]; i++)
         {
-            if (c < count)
+            if (c < count-1)
             {
+                c++;
                 forArr(upperBound, lowerBound, ints, ref count, ref c);
             }
             else
@@ -31,12 +32,13 @@ class MyArray
     {
        for (int i = lowerBound[c]; i < upperBound[c]; i++)
         {
-            if (c < count)
+            if (c < count-1)
             {
+                c++;
                 forArr(upperBound, lowerBound, ints, ref count, ref c);
             }
             else
-                array.SetValue(i, rnd.Next(1, 100));
+                array.SetValue(rnd.Next(1, 100), i);
             if (i == upperBound[c] - 1)
                 count--;
         }
