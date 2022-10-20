@@ -1,4 +1,3 @@
-
 class MyArray
 {
     public Array array;
@@ -50,7 +49,7 @@ class MyArray
 
 class Program
 {
-    static int Main(string[] args)
+    static void Main(string[] args)
     {
         Console.WriteLine("Введите колличество измерений: ");
         int count = Convert.ToInt32(Console.ReadLine());
@@ -58,7 +57,6 @@ class Program
         if (count <= 0)
         {
             throw new ArgumentException("Array must be greater then zero");
-            return 0;
         }
 
         int[] upperBound = new int[count];
@@ -72,7 +70,6 @@ class Program
             if (upperBound[i] < lowerBound[i])
             {
                 throw new ArgumentException("Upper bound must be grater than lower bound");
-                return 0;
             }
         }
 
@@ -86,65 +83,5 @@ class Program
         myArray.createMultiArr(upperBound, lowerBound);
         myArray.filling(hArr, count, place);
         myArray.concludion(hArr, count, place);
-        return 0;
-    }
-}.CreateInstance(typeof(int), arr);
-
-    }
-
-    public void forArr(int[] upperBound, int[] lowerBound, int[] ints, ref int count, ref int c)
-    {
-       for (int i = lowerBound[c]; i < upperBound[c]; i++)
-        {
-            if (c < count-1)
-            {
-                c++;
-                forArr(upperBound, lowerBound, ints, ref count, ref c);
-            }
-            else
-                array.SetValue(rnd.Next(1, 100), i);
-            if (i == upperBound[c] - 1)
-                count--;
-        }
-    }
-}
-
-class Program
-{
-    static void Main(string[] args)
-    {
-        /*Array array = new Array();
-        int[] arr = new int[5];
-        array.arrayGenerate(arr, 5);
-        for (int i = 0; i < arr.Length; i++)
-        {
-            Console.WriteLine(arr[i]);
-        }*/
-
-        Console.WriteLine("Введите колличество измерений: ");
-        int count = Convert.ToInt32(Console.ReadLine());
-        int countSave = count;
-
-        int[] upperBound = new int[count];
-        int[] lowerBound = new int[count];
-        for (int i = 0; i < count; i++)
-        {
-            Console.WriteLine("Введите верхнюю границу {0} массива: ", i);
-            upperBound[i] = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine("Введите нижнюю границу {0} массива: ", i);
-            lowerBound[i] = Convert.ToInt32(Console.ReadLine());
-        }
-
-        int[] ints = new int[count];
-        for (int i = 0; i < count; i++)
-        {
-            ints[i] = 0;
-        }
-        int c = 0;
-        MyArray myArray = new MyArray();
-        myArray.forArr(upperBound, lowerBound, ints, ref count, ref c);
-        count = countSave;
-        c = 0;
-        myArray.arrayConcludion(upperBound, lowerBound, ints, ref count, ref c);
     }
 }
